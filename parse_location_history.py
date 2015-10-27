@@ -20,6 +20,7 @@ if not options.file:
 getcontext().prec = 7
 dates = []
 
+#from here: http://stackoverflow.com/questions/1060279/iterating-through-a-range-of-dates-in-python
 def daterange(start_date, end_date):
     for n in range(int ((end_date - start_date).days)):
         yield start_date + datetime.timedelta(n)
@@ -57,8 +58,8 @@ def createKML(locations):
 			for point in locations:
 				timestampMs = int(point["timestampMs"])
 				if  minTime < timestampMs < maxTime:
-					if "activitys" in point:
-						if point["activitys"][0]["activities"][0]["type"] == "onFoot":
+					# if "activitys" in point:
+						# if point["activitys"][0]["activities"][0]["type"] == "onFoot":
 							
 							whereElement = kmlDoc.createElement('gx:coord')
 				  			whenElement = kmlDoc.createElement('when')
